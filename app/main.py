@@ -18,6 +18,9 @@ class Item(BaseModel):
     title: str
     description: str | None = None
 
+class User(BaseModel):
+    id: int
+
 
 @app.get("/items/{item_id}", response_model=Item)
 async def read_main(item_id: str, x_token: Annotated[str, Header()]):
